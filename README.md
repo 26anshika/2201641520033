@@ -1,46 +1,104 @@
-# Getting Started with Create React App
+ URL Shortener Frontend (React + TypeScript + Material UI)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a frontend React application it implements a simple URL Shortener Dashboard with client-side persistence, robust error handling, and a responsive Material UI design.
 
-## Available Scripts
+Features
 
-In the project directory, you can run:
+Authentication – User login & logout (mocked for this evaluation).
+<img width="1717" height="597" alt="Screenshot 2025-09-08 144303" src="https://github.com/user-attachments/assets/b6986c64-60ce-41df-b829-fb6498e59749" />
 
-### `npm start`
+🔗 URL Shortening – Create short links with:
+<img width="1477" height="748" alt="Screenshot 2025-09-08 144436" src="https://github.com/user-attachments/assets/2da5459b-387d-40f6-951f-9f2f219d97e7" />
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Custom short code (optional)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Default expiry (30 minutes) if not provided
 
-### `npm test`
+ Analytics Dashboard –
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Displays all created short links
+<img width="1717" height="796" alt="Screenshot 2025-09-08 144534" src="https://github.com/user-attachments/assets/fe5965a0-edb2-4d51-9312-dad0979d5df9" />
 
-### `npm run build`
+Shows creation & expiry timestamps
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Tracks total clicks & click history (timestamp + source)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+ Clipboard Support – Copy short link directly.
+<img width="1361" height="722" alt="Screenshot 2025-09-08 144555" src="https://github.com/user-attachments/assets/f39ba9d9-9125-4091-a788-b2b400bf910b" />
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Link Management – Delete short links, simulate clicks.
 
-### `npm run eject`
+ Responsive UI – Built with Material UI only.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+ Client-side Persistence – Data stored in localStorage.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+ Custom Logger – Inbuilt logger disabled, app uses custom appLog().
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+ Tech Stack
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+ React (TypeScript) – For building UI components.
 
-## Learn More
+ Material UI (MUI) – For styling and responsive layouts.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+ LocalStorage – For persistence (no backend required in this test).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+React Router – For URL routing & redirection.
+
+ Project Structure
+src/
+ ├── components/        # Reusable UI components
+ ├── pages/             # Dashboard, Login, Register
+ ├── hooks/             # Custom hooks (e.g., useAuth)
+ ├── utils/             # Helpers (logger, validation, date utils)
+ ├── types/             # TypeScript interfaces & models
+ └── App.tsx            # Main entry point
+
+⚙️ Setup & Run Locally
+
+Clone repo:
+
+git clone https://github.com/<your-username>/url-shortener-react.git
+cd url-shortener-react
+
+
+Install dependencies:
+
+npm install
+
+
+Start development server:
+
+npm start
+
+
+Runs at http://localhost:3000
+
+ Deployment (GitHub Pages)
+
+Install GitHub Pages:
+
+npm install gh-pages --save-dev
+
+
+Add this to package.json:
+
+"homepage": "https://<your-username>.github.io/url-shortener-react",
+"scripts": {
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build"
+}
+
+
+Deploy:
+
+npm run deploy
+
+ Assumptions & Constraints
+
+Users are considered pre-authorized (as per test requirements).
+
+Short link expiry defaults to 30 minutes if not specified.
+
+Only Material UI is allowed for styling.
+
+No backend API; all data stored client-side.
